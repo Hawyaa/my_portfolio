@@ -134,8 +134,7 @@ function cosineSimilarity(a: number[], b: number[]): number {
 
 // Build vocabulary from all chunks
 const allTokens = knowledgeBase.flatMap(c => tokenize(c.text + ' ' + c.keywords.join(' ')))
-const vocabulary = [...new Set(allTokens)].slice(0, 500)
-
+const vocabulary = Array.from(new Set(allTokens)).slice(0, 500)
 // Pre-compute chunk vectors
 const chunkVectors = knowledgeBase.map(chunk => ({
   chunk,
